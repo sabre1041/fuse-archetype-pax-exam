@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.redhat.fuse</groupId>
+  <artifactId>fuse-archetype-pax-exam</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>Fuse Archetypes - Pax Exam</name>
+  
+  <properties>
+  	<fuse-camel-version>2.12.0.redhat-610379</fuse-camel-version>
+  	<fuse-spring-version>2.3.0.redhat-610379</fuse-spring-version>
+  	<pax-exam-karaf-version>1.0.0.redhat-379</pax-exam-karaf-version>
+  	<apache-camel-version>2.12.0</apache-camel-version>
+  	<karaf-version>2.3.0</karaf-version>
+  	<maven-resources-plugin-version>2.6</maven-resources-plugin-version>
+  	<maven-complier-version>2.5.1</maven-complier-version>
+  	<maven-bundle-plugin-version>2.3.7</maven-bundle-plugin-version>
+  	<depends-maven-plugin-version>1.2</depends-maven-plugin-version>
+    <maven-archetype-packaging-version>2.2</maven-archetype-packaging-version>
+ 	<maven-archetype-plugin-version>2.2</maven-archetype-plugin-version>
+ 	<lifecycle-mapping-plugin-version>1.0.0</lifecycle-mapping-plugin-version>
+  </properties>
+  
+  <modules>
+      <module>camel-archetype-blueprint-pax-exam</module>
+  </modules>
+  
+</project>

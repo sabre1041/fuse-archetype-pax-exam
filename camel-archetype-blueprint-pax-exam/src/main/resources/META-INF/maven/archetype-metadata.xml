@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd" name="camel-blueprint-pax-exam"
+    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <requiredProperties>
+    <requiredProperty key="fuse-camel-version">
+      <defaultValue>${fuse-camel-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="fuse-spring-version">
+      <defaultValue>${fuse-spring-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="pax-exam-karaf-version">
+      <defaultValue>${pax-exam-karaf-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="apache-camel-version">
+      <defaultValue>${apache-camel-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="karaf-version">
+      <defaultValue>${karaf-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="maven-complier-version">
+      <defaultValue>${maven-complier-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="maven-bundle-plugin-version">
+      <defaultValue>${maven-bundle-plugin-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="depends-maven-plugin-version">
+      <defaultValue>${depends-maven-plugin-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="maven-archetype-packaging-version">
+      <defaultValue>${maven-archetype-packaging-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="maven-archetype-plugin-version">
+      <defaultValue>${maven-archetype-plugin-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="maven-resources-plugin-version">
+      <defaultValue>${maven-resources-plugin-version}</defaultValue>
+    </requiredProperty>
+    <requiredProperty key="lifecycle-mapping-plugin-version">
+      <defaultValue>${lifecycle-mapping-plugin-version}</defaultValue>
+    </requiredProperty>
+  </requiredProperties>
+  <fileSets>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/main/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/main/resources</directory>
+      <includes>
+        <include>**/*</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" packaged="true" encoding="UTF-8">
+      <directory>src/test/java</directory>
+      <includes>
+        <include>**/*.java</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>src/test/resources</directory>
+      <includes>
+        <include>**/*</include>
+      </includes>
+    </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory></directory>
+      <includes>
+        <include>ReadMe.txt</include>
+      </includes>
+    </fileSet>
+  </fileSets>
+</archetype-descriptor>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>${groupId}</groupId>
+	<artifactId>${artifactId}</artifactId>
+	<packaging>bundle</packaging>
+	<version>${version}</version>
+
+	<name>A Camel Blueprint Route</name>
+	<url>http://www.myorganization.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>release.fusesource.org</id>
+			<name>FuseSource Release Repository</name>
+			<url>http://repo.fusesource.com/nexus/content/repositories/releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+			</releases>
+		</repository>
+		<repository>
+			<id>ea.fusesource.org</id>
+			<name>FuseSource Community Early Access Release Repository</name>
+			<url>http://repo.fusesource.com/nexus/content/groups/ea</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+			</releases>
+		</repository>
+		<repository>
+			<id>snapshot.fusesource.org</id>
+			<name>FuseSource Snapshot Repository</name>
+			<url>http://repo.fusesource.com/nexus/content/repositories/snapshots</url>
+			<snapshots>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>release.fusesource.org</id>
+			<name>FuseSource Release Repository</name>
+			<url>http://repo.fusesource.com/nexus/content/repositories/releases</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>ea.fusesource.org</id>
+			<name>FuseSource Community Early Access Release Repository</name>
+			<url>http://repo.fusesource.com/nexus/content/groups/ea</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>snapshot.fusesource.org</id>
+			<name>FuseSource Snapshot Repository</name>
+			<url>http://repo.fusesource.com/nexus/content/repositories/snapshots</url>
+			<snapshots>
+			</snapshots>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<!-- Camel Dependencies -->
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>${fuse-camel-version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-blueprint</artifactId>
+			<version>${fuse-camel-version}</version>
+		</dependency>
+
+		<!-- Blueprint Dependency -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-test-blueprint</artifactId>
+			<version>${fuse-camel-version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Pax Exam Dependencies -->
+		<dependency>
+			<groupId>org.fusesource.tooling.testing</groupId>
+			<artifactId>pax-exam-karaf</artifactId>
+			<version>${pax-exam-karaf-version}</version>
+			<scope>test</scope>
+		</dependency>
+		
+		
+		<!-- feature dependencies -->
+		<dependency>
+			<groupId>org.apache.camel.karaf</groupId>
+			<artifactId>apache-camel</artifactId>
+			<version>${apache-camel-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.karaf.assemblies.features</groupId>
+			<artifactId>spring</artifactId>
+			<version>${fuse-spring-version}</version>
+			<type>xml</type>
+			<classifier>features</classifier>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Karaf Container to run tests in -->
+		<dependency>
+			<groupId>org.apache.karaf</groupId>
+			<artifactId>apache-karaf</artifactId>
+			<version>${karaf-version}</version>
+			<type>zip</type>
+			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.apache.karaf.shell</groupId>
+					<artifactId>org.apache.karaf.shell.dev</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.apache.karaf</groupId>
+					<artifactId>org.apache.karaf.client</artifactId>
+				</exclusion>
+				<exclusion>
+					<artifactId>osgi</artifactId>
+					<groupId>org.eclipse</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>org.apache.felix.framework</artifactId>
+					<groupId>org.apache.felix</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<defaultGoal>install</defaultGoal>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-complier-version}</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>${maven-resources-plugin-version}</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<!-- to generate the MANIFEST-FILE of the bundle -->
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<version>${maven-bundle-plugin-version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>camel-blueprint-pax-exam</Bundle-SymbolicName>
+						<Private-Package>com.redhat.fuse.camel.blueprint.pax.exam.*</Private-Package>
+						<Import-Package>*</Import-Package>
+					</instructions>
+				</configuration>
+			</plugin>
+
+			<!-- to run the example using mvn camel:run -->
+			<plugin>
+				<groupId>org.apache.camel</groupId>
+				<artifactId>camel-maven-plugin</artifactId>
+				<version>${fuse-camel-version}</version>
+				<configuration>
+					<useBlueprint>true</useBlueprint>
+				</configuration>
+			</plugin>
+
+			<!-- Allows for the use of versionAsInProject() in Pax Exam tests -->
+			<plugin>
+				<groupId>org.apache.servicemix.tooling</groupId>
+				<artifactId>depends-maven-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>generate-depends-file</id>
+						<goals>
+							<goal>generate-depends-file</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>${lifecycle-mapping-plugin-version}</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.apache.servicemix.tooling</groupId>
+										<artifactId>depends-maven-plugin</artifactId>
+										<versionRange>[1.2,)</versionRange>
+										<goals>
+											<goal>generate-depends-file</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+</project>
