@@ -10,7 +10,7 @@ JBoss Fuse archetype collection demonstrating the use of [Pax Exam](https://ops4
 2. Build archetype using Maven to install archetypes into local repository
 
 	```
-		mvn clean install
+	mvn clean install
 	```
 3. Generate new project from one of the archetypes
 
