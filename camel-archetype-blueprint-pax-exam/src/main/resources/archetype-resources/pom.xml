@@ -189,8 +189,8 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Bundle-SymbolicName>camel-blueprint-pax-exam</Bundle-SymbolicName>
-						<Private-Package>com.redhat.fuse.camel.blueprint.pax.exam.*</Private-Package>
+						<Bundle-SymbolicName>${artifactId}</Bundle-SymbolicName>
+						<Private-Package>${package}.*</Private-Package>
 						<Import-Package>*</Import-Package>
 					</instructions>
 				</configuration>
@@ -210,7 +210,7 @@
 			<plugin>
 				<groupId>org.apache.servicemix.tooling</groupId>
 				<artifactId>depends-maven-plugin</artifactId>
-				<version>1.2</version>
+				<version>${depends-maven-plugin-version}</version>
 				<executions>
 					<execution>
 						<id>generate-depends-file</id>
